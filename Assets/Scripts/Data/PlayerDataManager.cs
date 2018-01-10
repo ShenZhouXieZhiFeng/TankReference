@@ -133,12 +133,12 @@ namespace Tanks.Data
 			//We always want the first tank and the first decoration (a null decoration) to be unlocked by default, and init accordingly.
 			if (m_Data.decorations.Length > 0)
 			{
-				m_Data.decorations[0].unlocked = true;
+                m_Data.decorations[0].unlocked = true;
 			}
 			if (m_Data.unlockedTanks.Length > 0)
 			{
-				m_Data.unlockedTanks[0] = true;
-			}
+                m_Data.unlockedTanks[0] = true;
+            }
 
 			m_Saver.Load(m_Data);
 		}

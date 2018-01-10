@@ -61,30 +61,30 @@ namespace Tanks.Audio
 			}
 		}
 
-		//This method is subscribed to the activeSceneChanged event, and will fire whenever the scene changes.
-		private void OnSceneChanged(Scene scene1, Scene newScene)
-		{
-			if (m_MusicSource != null)
-			{
-				// Make sure to reset pitch
-				m_MusicSource.pitch = 1;
-			}
+        //This method is subscribed to the activeSceneChanged event, and will fire whenever the scene changes.
+        private void OnSceneChanged(Scene scene1, Scene newScene)
+        {
+            if (m_MusicSource != null)
+            {
+                // Make sure to reset pitch
+                m_MusicSource.pitch = 1;
+            }
 
-			//If we're transitioning to the menu scene, play the menu music (if it is not already playing). Otherwise pull and autoplay the current level's music.
-			if (newScene.name == "LobbyScene")
-			{
-				if (m_MusicSource.clip != m_MenuMusic)
-				{
-					PlayMusic(m_MenuMusic, true);
-				}
-			}
-			else
-			{
-				PlayMusic(GameSettings.s_Instance.map.levelMusic, true);
-			}
-		}
+            //If we're transitioning to the menu scene, play the menu music (if it is not already playing). Otherwise pull and autoplay the current level's music.
+            if (newScene.name == "LobbyScene")
+            {
+                if (m_MusicSource.clip != m_MenuMusic)
+                {
+                    PlayMusic(m_MenuMusic, true);
+                }
+            }
+            else
+            {
+                PlayMusic(GameSettings.s_Instance.map.levelMusic, true);
+            }
+        }
 
-		public void StopMusic()
+        public void StopMusic()
 		{
 			m_MusicSource.Stop();
 		}
